@@ -1,6 +1,6 @@
 <section class="container pt-4">
   <h3>Contact form</h3>
-  <form (ngSubmit)="onSubmit()" [formGroup]="formState">
+  <form (ngSubmit)="onSubmit()" [formGroup]="formState" id="formContact">
     <!-- INPUTS -->
     <div>
       <label>
@@ -14,16 +14,16 @@
         <input type="text" class="form-control" formControlName="nip">
         <!-- NIP VALIDATION -->
         <div *ngIf="getFormControl('nip')?.invalid && (getFormControl('nip')?.dirty || getFormControl('nip')?.touched ) ">
-          <small class="text-danger d-block" *ngIf="getFormControl('nip')?.errors?.pattern">
+          <small id="patternValidationMessage" class="text-danger d-block" *ngIf="getFormControl('nip')?.errors?.pattern">
             NIP must be a number.
           </small>
-          <small class="text-danger d-block" *ngIf="getFormControl('nip')?.errors?.required">
+          <small id="requiredValidationMessage" class="text-danger d-block" *ngIf="getFormControl('nip')?.errors?.required">
             NIP is required.
           </small>
-          <small class="text-danger d-block" *ngIf="getFormControl('nip')?.errors?.minlength">
+          <small id="minLengthValidationMessage" class="text-danger d-block" *ngIf="getFormControl('nip')?.errors?.minlength">
             NIP must be a 10 numbers length.
           </small>
-            <small class="text-danger d-block" *ngIf="getFormControl('nip')?.errors?.maxlength">
+            <small id="maxLengthValidationMessage" class="text-danger d-block" *ngIf="getFormControl('nip')?.errors?.maxlength">
               NIP must be up to 10 numbers.
             </small>
         </div>
@@ -35,10 +35,10 @@
         <input type="email" class="form-control" formControlName="email">
         <!-- EMAIL VALIDATION -->
         <div *ngIf="getFormControl('email')?.invalid && (getFormControl('email')?.dirty || getFormControl('email')?.touched ) ">
-          <small class="text-danger" *ngIf="getFormControl('email')?.errors?.required">
+          <small id="errorEmailRequired" class="text-danger" *ngIf="getFormControl('email')?.errors?.required">
             Email is required.
           </small>
-          <small class="text-danger" *ngIf="getFormControl('email')?.errors?.email">
+          <small id="errorEmailInvalid" class="text-danger" *ngIf="getFormControl('email')?.errors?.email">
             Email is invalid.
           </small>
         </div>

@@ -31,9 +31,6 @@ export class ContactComponent {
       address: [''],
       web: [''],
     });
-
-    const cardDeck = new CardDeckCounter(cards);
-    console.log(cardDeck.getFullDeckTotalCount());
   }
   handleSubmit(contact: any): void {
     this.contactService.save(contact).subscribe((response) => {
