@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ContactService } from 'src/app/core/services/contact-service';
+import { CardDeckCounter } from '../../core/shared/card-deck-counter';
+import { cards } from '../../core/mocks/mockMixedDecks';
 
 @Component({
   selector: 'app-contact',
@@ -29,6 +31,9 @@ export class ContactComponent {
       address: [''],
       web: [''],
     });
+
+    const cardDeck = new CardDeckCounter(cards);
+    console.log(cardDeck.getFullDeckTotalCount());
   }
   handleSubmit(contact: any): void {
     this.contactService.save(contact).subscribe((response) => {
